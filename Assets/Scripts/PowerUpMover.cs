@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PowerUpMover : MonoBehaviour {
 
-    public float speed = 3f;
+    public static float speed = 3f;
 
     void Update() {
 
