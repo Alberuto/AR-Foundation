@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour {
         score += 100;
         scoreText.text = "Score: " + score;
 
-        if (score % 1000 == 0) {  
+        if (score % 500 == 0) {  
             vidas++;
             vidasText.text = "Vidas: " + vidas;
             Debug.Log("¡Vida extra! Score: " + score);

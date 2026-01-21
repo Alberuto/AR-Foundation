@@ -2334,7 +2334,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GameManager_GanarPuntos_m0849E801AECB64B
 		VirtualActionInvoker1< String_t* >::Invoke(66, L_1, L_4);
 		//<source_info:C:/Users/alberto/repositorios/AR Foundation/Assets/Scripts/GameManager.cs:45>
 		int32_t L_5 = __this->___score;
-		if (((int32_t)(L_5%((int32_t)1000))))
+		if (((int32_t)(L_5%((int32_t)500))))
 		{
 			goto IL_0085;
 		}
