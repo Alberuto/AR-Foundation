@@ -7,6 +7,11 @@
 
 
 
+extern void MenuManager_Jugar_m517285D898868D29DE2E6914073D6EA379E4B961 (void);
+extern void MenuManager_Salir_m58A7C2A6FEE253CCDB470D478B6EAD1A7C889B7B (void);
+extern void MenuManager_Configuracion_m82511DF03803ACF0833B2F92EB79578836D62D56 (void);
+extern void MenuManager_Ranking_m403853CEFAA1415618AF95A6520BF2D908F11818 (void);
+extern void MenuManager__ctor_m07A22DFDD90E3164393F8BDE06DAEF5AFA786CF2 (void);
 extern void EnemyMover_Update_m4A4C9F74E53AB823219715B1AD6D38116415B664 (void);
 extern void EnemyMover__ctor_mC9DC5176F9DF74CA8EAC497DCC8A71B4A88E83BC (void);
 extern void EnemyMover__cctor_m5C2E99534ED509235693533B206607FF82E679F0 (void);
@@ -44,8 +49,13 @@ extern void Readme__ctor_m69C325C4C171DCB0312B646A9034AA91EA8C39C6 (void);
 extern void Section__ctor_m5F732533E4DFC0167D965E5F5DB332E46055399B (void);
 extern void UnitySourceGeneratedAssemblyMonoScriptTypes_v1_Get_mBEB95BEB954BB63E9710BBC7AD5E78C4CB0A0033 (void);
 extern void UnitySourceGeneratedAssemblyMonoScriptTypes_v1__ctor_mE70FB23ACC1EA12ABC948AA22C2E78B2D0AA39B1 (void);
-static Il2CppMethodPointer s_methodPointers[37] = 
+static Il2CppMethodPointer s_methodPointers[42] = 
 {
+	MenuManager_Jugar_m517285D898868D29DE2E6914073D6EA379E4B961,
+	MenuManager_Salir_m58A7C2A6FEE253CCDB470D478B6EAD1A7C889B7B,
+	MenuManager_Configuracion_m82511DF03803ACF0833B2F92EB79578836D62D56,
+	MenuManager_Ranking_m403853CEFAA1415618AF95A6520BF2D908F11818,
+	MenuManager__ctor_m07A22DFDD90E3164393F8BDE06DAEF5AFA786CF2,
 	EnemyMover_Update_m4A4C9F74E53AB823219715B1AD6D38116415B664,
 	EnemyMover__ctor_mC9DC5176F9DF74CA8EAC497DCC8A71B4A88E83BC,
 	EnemyMover__cctor_m5C2E99534ED509235693533B206607FF82E679F0,
@@ -84,51 +94,56 @@ static Il2CppMethodPointer s_methodPointers[37] =
 	UnitySourceGeneratedAssemblyMonoScriptTypes_v1_Get_mBEB95BEB954BB63E9710BBC7AD5E78C4CB0A0033,
 	UnitySourceGeneratedAssemblyMonoScriptTypes_v1__ctor_mE70FB23ACC1EA12ABC948AA22C2E78B2D0AA39B1,
 };
-static const int32_t s_InvokerIndices[37] = 
+static const int32_t s_InvokerIndices[42] = 
 {
-	15361,
-	15361,
-	26243,
-	15361,
-	15361,
-	11453,
-	15361,
-	15361,
-	15361,
-	15361,
-	15361,
-	15361,
-	15361,
-	15361,
-	15361,
-	15361,
-	4389,
-	15361,
-	11632,
-	15361,
-	14973,
-	15166,
-	15361,
-	15166,
-	11695,
-	15361,
-	15361,
-	15361,
-	26243,
-	15361,
-	15361,
-	11695,
-	15361,
-	15361,
-	15361,
-	26281,
-	15361,
+	15362,
+	15362,
+	15362,
+	15362,
+	15362,
+	15362,
+	15362,
+	26247,
+	15362,
+	15362,
+	11454,
+	15362,
+	15362,
+	15362,
+	15362,
+	15362,
+	15362,
+	15362,
+	15362,
+	15362,
+	15362,
+	4390,
+	15362,
+	11633,
+	15362,
+	14974,
+	15167,
+	15362,
+	15167,
+	11696,
+	15362,
+	15362,
+	15362,
+	26247,
+	15362,
+	15362,
+	11696,
+	15362,
+	15362,
+	15362,
+	26285,
+	15362,
 };
 IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	37,
+	42,
 	s_methodPointers,
 	0,
 	NULL,
