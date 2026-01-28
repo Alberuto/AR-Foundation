@@ -1,12 +1,18 @@
 using UnityEngine;
 
 public class EnemyMover : MonoBehaviour {
-
     public static float speed = 3f;
+    private Rigidbody rb;
 
-    void Update() {
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+        if (rb == null) Debug.LogError("Falta Rigidbody en " + name);
+    }
 
-        transform.Translate(0, 0, -speed * Time.deltaTime, Space.World);
-
+    void FixedUpdate()
+    {  //FixedUpdate para físicas
+        Vector3 move = Vector3.forward * -speed;
+        rb.MovePosition(rb.position + move * Time.fixedDeltaTime);
     }
 }

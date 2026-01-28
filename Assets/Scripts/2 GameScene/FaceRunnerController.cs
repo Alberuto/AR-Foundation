@@ -7,7 +7,7 @@ public class FaceRunnerController : MonoBehaviour {
     public Transform player;
 
     public float lateralSensitivity = 0.1f;
-    public float maxX = 2f;
+    public float maxX = 2.5f;
 
     void Update() {
 

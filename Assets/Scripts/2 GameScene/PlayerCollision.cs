@@ -6,10 +6,9 @@ public class PlayerCollision : MonoBehaviour {
 
     void OnTriggerEnter(Collider other) {
 
-        if (other.CompareTag("Enemigo")) {
+        if (other.CompareTag("Enemy")) {
 
             GameManager.Instance.PerderVida();
-            impactoEfecto.ImpactoEnemigo();
             other.gameObject.SetActive(false);
         }
         if (other.CompareTag("PowerUp")) {

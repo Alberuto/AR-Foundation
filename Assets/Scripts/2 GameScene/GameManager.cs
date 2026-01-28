@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour {
     private float tiempoAcumulado = 0f;
 
     public TextMeshProUGUI vidasText, scoreText, tiempoText;
+
+    public ImpactEffect impactEffect;
     public GameObject gameWinPanel;
     public GameObject gameOverPanel;
 
@@ -33,8 +35,15 @@ public class GameManager : MonoBehaviour {
         vidas--;
         vidasText.text = "Vidas: " + vidas;
         if (vidas <= 0) {
-            Time.timeScale = 0;
-            if (gameOverPanel) gameOverPanel.SetActive(true);
+            if (impactEffect != null)  {
+                impactEffect.GameOver();   //se encarga de rojo + panel derrota
+            }
+        }
+        else {
+            // Impacto normal enemigo
+            if (impactEffect != null) {
+                impactEffect.ImpactoEnemigo(); // Rojo 0.5s
+            }
         }
     }
     public void GanarPuntos() {

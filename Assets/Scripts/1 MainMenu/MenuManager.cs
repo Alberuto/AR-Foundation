@@ -17,4 +17,8 @@ public class MenuManager : MonoBehaviour {
         // FASE 3  
         Debug.Log("Ranking (próximamente)");
     }
+    public void Menu() {
+        SceneManager.LoadScene(0);
+        //SceneManager.LoadScene("1 MainMenu");
+    }
 }

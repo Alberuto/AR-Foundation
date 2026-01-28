@@ -294,6 +294,7 @@
           {
             "name": "Mesh",
             "scenes": [
+              "Assets/Scenes/1 MainMenu.unity",
               "Assets/Scenes/2 GameScene.unity"
             ],
             "dependencyType": 0,
@@ -302,6 +303,7 @@
           {
             "name": "MeshFilter",
             "scenes": [
+              "Assets/Scenes/1 MainMenu.unity",
               "Assets/Scenes/2 GameScene.unity"
             ],
             "dependencyType": 0,
@@ -310,6 +312,7 @@
           {
             "name": "MeshRenderer",
             "scenes": [
+              "Assets/Scenes/1 MainMenu.unity",
               "Assets/Scenes/2 GameScene.unity"
             ],
             "dependencyType": 0,
@@ -960,6 +963,7 @@
           {
             "name": "BoxCollider",
             "scenes": [
+              "Assets/Scenes/1 MainMenu.unity",
               "Assets/Scenes/2 GameScene.unity"
             ],
             "dependencyType": 0,

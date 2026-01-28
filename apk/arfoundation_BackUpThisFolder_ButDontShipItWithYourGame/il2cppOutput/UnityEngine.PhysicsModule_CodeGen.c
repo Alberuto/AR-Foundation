@@ -137,7 +137,12 @@ extern void RaycastHit_get_collider_m84B160439BBEAB6D9E94B799F720E25C9E2D444D (v
 extern void RaycastHit_get_point_m02B764612562AFE0F998CC7CFB2EEDE41BA47F39 (void);
 extern void RaycastHit_get_normal_mD8741B70D2039C5CAFC4368D4CE59D89562040B5 (void);
 extern void RaycastHit_get_distance_m035194B0E9BB6229259CFC43B095A9C8E5011C78 (void);
-static Il2CppMethodPointer s_methodPointers[130] = 
+extern void Rigidbody_get_position_m4ECB79BDBBF8FD1EA572EDB792D3330DDED24691 (void);
+extern void Rigidbody_MovePosition_mB2CD29ABC8F59AC338C0A3A5A6B75C38FDA92CA9 (void);
+extern void Rigidbody__ctor_mB4E21922228AED3B52D8696D54F5B514F922CB07 (void);
+extern void Rigidbody_get_position_Injected_mD3AC6CDFE76252AAE5F4862BC7D18E0C479DDC8E (void);
+extern void Rigidbody_MovePosition_Injected_m1FBFE36CBE00546E08E32E304FEB6EEA5EE34E3E (void);
+static Il2CppMethodPointer s_methodPointers[135] = 
 {
 	Collision_get_impulse_mBA2EDD39B7F495FF335FB867B244253602C7EF5D,
 	Collision_get_relativeVelocity_mAD9D45864C56FFAB284E77835BF75DF86D4E4CC0,
@@ -269,6 +274,11 @@ static Il2CppMethodPointer s_methodPointers[130] =
 	RaycastHit_get_point_m02B764612562AFE0F998CC7CFB2EEDE41BA47F39,
 	RaycastHit_get_normal_mD8741B70D2039C5CAFC4368D4CE59D89562040B5,
 	RaycastHit_get_distance_m035194B0E9BB6229259CFC43B095A9C8E5011C78,
+	Rigidbody_get_position_m4ECB79BDBBF8FD1EA572EDB792D3330DDED24691,
+	Rigidbody_MovePosition_mB2CD29ABC8F59AC338C0A3A5A6B75C38FDA92CA9,
+	Rigidbody__ctor_mB4E21922228AED3B52D8696D54F5B514F922CB07,
+	Rigidbody_get_position_Injected_mD3AC6CDFE76252AAE5F4862BC7D18E0C479DDC8E,
+	Rigidbody_MovePosition_Injected_m1FBFE36CBE00546E08E32E304FEB6EEA5EE34E3E,
 };
 extern void ContactPairHeader_get_body_m8B8DC4B023CB7078B425E3CE764CFF3088D37FC8_AdjustorThunk (void);
 extern void ContactPairHeader_get_otherBody_m76BD1BDDE46A87839F214F741ECB0E0857EFAE0A_AdjustorThunk (void);
@@ -333,7 +343,7 @@ static Il2CppTokenAdjustorThunkPair s_adjustorThunks[30] =
 	{ 0x06000081, RaycastHit_get_normal_mD8741B70D2039C5CAFC4368D4CE59D89562040B5_AdjustorThunk },
 	{ 0x06000082, RaycastHit_get_distance_m035194B0E9BB6229259CFC43B095A9C8E5011C78_AdjustorThunk },
 };
-static const int32_t s_InvokerIndices[130] = 
+static const int32_t s_InvokerIndices[135] = 
 {
 	15351,
 	15351,
@@ -348,10 +358,10 @@ static const int32_t s_InvokerIndices[130] =
 	15351,
 	11873,
 	15362,
-	21997,
-	21997,
-	21997,
-	21997,
+	21998,
+	21998,
+	21998,
+	21998,
 	15167,
 	15167,
 	15351,
@@ -364,15 +374,15 @@ static const int32_t s_InvokerIndices[130] =
 	10390,
 	14971,
 	15362,
-	24242,
-	21998,
-	21998,
+	24243,
+	21999,
+	21999,
 	19801,
-	21997,
+	21998,
 	18285,
 	18285,
-	26106,
-	26162,
+	26107,
+	26163,
 	16265,
 	17553,
 	18849,
@@ -384,7 +394,7 @@ static const int32_t s_InvokerIndices[130] =
 	17544,
 	18833,
 	20762,
-	24246,
+	24247,
 	16257,
 	17543,
 	18831,
@@ -397,7 +407,7 @@ static const int32_t s_InvokerIndices[130] =
 	18047,
 	19141,
 	21279,
-	24615,
+	24616,
 	16730,
 	17892,
 	19014,
@@ -406,27 +416,27 @@ static const int32_t s_InvokerIndices[130] =
 	16732,
 	17896,
 	19019,
-	26106,
-	24603,
-	24603,
-	22195,
-	22195,
-	22195,
+	26107,
+	24604,
+	24604,
+	22196,
+	22196,
+	22196,
 	19910,
-	24955,
+	24956,
 	19081,
-	26247,
+	26248,
 	16092,
-	24471,
-	24471,
-	22002,
-	22002,
-	22002,
+	24472,
+	24472,
+	22003,
+	22003,
+	22003,
 	5869,
 	5958,
 	11696,
 	15362,
-	22001,
+	22002,
 	15167,
 	15167,
 	14974,
@@ -451,7 +461,7 @@ static const int32_t s_InvokerIndices[130] =
 	15103,
 	8271,
 	8288,
-	26162,
+	26163,
 	515,
 	16256,
 	347,
@@ -465,12 +475,17 @@ static const int32_t s_InvokerIndices[130] =
 	15351,
 	15351,
 	15267,
+	15351,
+	11873,
+	15362,
+	21998,
+	21998,
 };
 IL2CPP_EXTERN_C const Il2CppCodeGenModule g_UnityEngine_PhysicsModule_CodeGenModule;
 const Il2CppCodeGenModule g_UnityEngine_PhysicsModule_CodeGenModule = 
 {
 	"UnityEngine.PhysicsModule.dll",
-	130,
+	135,
 	s_methodPointers,
 	30,
 	s_adjustorThunks,
