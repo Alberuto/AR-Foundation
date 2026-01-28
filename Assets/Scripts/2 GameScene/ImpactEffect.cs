@@ -1,6 +1,7 @@
+using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
 
 public class ImpactEffect : MonoBehaviour {
 
@@ -9,9 +10,12 @@ public class ImpactEffect : MonoBehaviour {
     public Image panelVerde;
     private float duracionEfecto = 1.5f;
 
-    [Header("GAME OVER")]
+    [Header("PANELS")]
+    public GameObject panelVictoria;
     public GameObject panelDerrota;
-    public float delayGameOver = 0.5f;
+    public float delayGameOver = 0.5f; //para evitar solapar con efectos y que boton quede inservible
+    public TextMeshProUGUI textoScoreFinal;    // "FINAL: 6000 pts"
+    public TextMeshProUGUI textoNivelFinal;    // Nivel X
 
     public void ImpactoEnemigo() {
         StartCoroutine(MostrarEfecto(panelRojo, Color.red));
@@ -57,11 +61,46 @@ public class ImpactEffect : MonoBehaviour {
         // 2. Delay para limpiar raycast
         yield return new WaitForSeconds(delayGameOver);
 
+        // ?? 2 TEXTOS SEPARADOS
+        GameManager gm = FindObjectOfType<GameManager>();
+        if (gm != null) {
+            if (textoScoreFinal != null) {
+                textoScoreFinal.text = $"FINAL: {gm.GetScoreTotalRanking()} pts";
+            }
+            if (textoNivelFinal != null) {
+                textoNivelFinal.text = $"Nivel: {gm.GetNivelActual()}";
+            }
+        }
+
         Time.timeScale = 0f;
 
         // 3. Panel derrota
         if (panelDerrota != null) {
             panelDerrota.SetActive(true);
+        }
+    }
+    public void GameWin() {
+        StartCoroutine(GameWinConVerde());
+    }
+
+    IEnumerator GameWinConVerde() {
+        // Verde victoria LARGO (2s)
+        panelVerde.gameObject.SetActive(true);
+        panelVerde.color = new Color(0, 1, 0, 0.3f); // Verde
+
+        float tiempo = 0;
+        while (tiempo < 2f) { // 2s victoria
+            tiempo += Time.deltaTime;
+            float alpha = Mathf.Lerp(0.3f, 0f, tiempo / 2f);
+            panelVerde.color = new Color(0, 1, 0, alpha);
+            yield return null;
+        }
+        panelVerde.gameObject.SetActive(false);
+        // Delay + pausa + panel victoria
+        yield return new WaitForSeconds(delayGameOver);
+        Time.timeScale = 0f;
+        if (panelVictoria != null) {
+            panelVictoria.SetActive(true);
         }
     }
 }
