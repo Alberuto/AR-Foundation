@@ -6,10 +6,11 @@ using System.IO;
 
 public class MenuManager : MonoBehaviour {
 
-    public static MenuManager Instance; //Singleton
+    public static MenuManager Instance; //Singleton class
 
     [Header("RANKING UI")]
     public GameObject panelRanking;
+    public GameObject panelSettings;
     public Transform rankingContainer;
     public GameObject rankingEntryPrefab; // Prefab con TextMeshPro
 
@@ -23,6 +24,12 @@ public class MenuManager : MonoBehaviour {
         }
     }
     public void Jugar() {
+        //en SETTINGS PODEMOS OBVIAR ESTOS BORRADOS PARA CONTINUAR LA PARTIDA POR DONDE IBAMOS, METER BOLEANO Y SEGUN{}
+        if (PlayerPrefs.GetInt("PartidaInfinita", 0) != 1) {
+            PlayerPrefs.DeleteKey("ScoreTotalRanking");
+            PlayerPrefs.DeleteKey("NivelActual");
+            PlayerPrefs.DeleteKey("ScoreNivelCompletado");
+        }
         SceneManager.LoadScene("2 GameScene");
     }
     public void Salir() {
@@ -30,10 +37,35 @@ public class MenuManager : MonoBehaviour {
         Debug.Log("Juego cerrado");
     }
     public void Configuracion() {
-        Debug.Log("Configuración (próximamente)");
+        if (panelSettings != null) {
+            panelSettings.SetActive(true);
+            SettingsManager.Instance?.CargarSettings(); // ← Singleton
+        }
     }
     public void Menu() {
-        SceneManager.LoadScene(0);
+
+        string nombre = "";
+        if (inputInicialesGameScene != null) {
+            nombre = inputInicialesGameScene.text; // lo que ha escrito el jugador
+        }
+        GuardarRankingDirecto(
+            nombre,
+            GameManager.Instance.GetScoreTotalRanking(),
+            GameManager.Instance.GetNivelActual()
+            );
+            SceneManager.LoadScene(0);
+    }
+    public void MostrarSettings() {
+        panelSettings.SetActive(true);
+    }
+    public void SalirRanking() { 
+            panelRanking.SetActive(false);
+    }
+    public void SalirSettings() {
+        if (panelSettings != null) {
+            panelSettings.SetActive(false);
+            SettingsManager.Instance?.GuardarSettings(); // ← Singleton
+        }
     }
     //SINGLETON HELPERS (desde GameManager)
     private static int GetScoreActual() {
@@ -49,29 +81,28 @@ public class MenuManager : MonoBehaviour {
         MostrarRanking();
     }
     //RANKING METHODS
-    public static void GuardarRankingDirecto(string nombre, int score, int nivel) {
-
-        RankingData data = new RankingData();
-        data.AddEntry(nombre, score, nivel);
-    }
     public void MostrarRanking() {
+
         RankingData data = new RankingData();
         data.Load();
 
-        // Limpiar
-        foreach (Transform child in rankingContainer)
-        {
+        //Limpiar
+        foreach (Transform child in rankingContainer) {
             Destroy(child.gameObject);
         }
-
         // Generar TOP 10
-        for (int i = 0; i < data.top10.Count; i++)
-        {
+        for (int i = 0; i < data.top10.Count; i++) {
             GameObject entry = Instantiate(rankingEntryPrefab, rankingContainer);
             TMP_Text texto = entry.GetComponentInChildren<TMP_Text>();
             texto.text = $"{i + 1}. {data.top10[i].nombre} - {data.top10[i].scoreTotal}pts (N:{data.top10[i].nivelMaximo})";
         }
         panelRanking.SetActive(true);
+    }
+    public static void GuardarRankingDirecto(string nombre, int score, int nivel) {
+
+        RankingData data = new RankingData();
+        data.Load(); //para que sea acumulativo en cada ejecucion
+        data.AddEntry(nombre, score, nivel);
     }
 
     //CLASES JSON
@@ -104,14 +135,34 @@ public class MenuManager : MonoBehaviour {
             string path = Application.persistentDataPath + "/ranking.json";
             string json = JsonUtility.ToJson(this, true);
             File.WriteAllText(path, json);
+            Debug.Log("Ranking guardado en: " + path);
+            Debug.Log("Contenido:\n" + json);
         }
         public void Load() {
             string path = Application.persistentDataPath + "/ranking.json";
-            if (File.Exists(path))
-            {
+            if (File.Exists(path)) {
+
                 string json = File.ReadAllText(path);
                 JsonUtility.FromJsonOverwrite(json, this);
             }
+        }
+    }
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // Reproducir música al cambiar escena
+        if (GetComponent<AudioSource>() != null && !GetComponent<AudioSource>().isPlaying)
+        {
+            GetComponent<AudioSource>().Play();
         }
     }
 }

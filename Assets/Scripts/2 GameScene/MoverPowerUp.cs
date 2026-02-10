@@ -7,6 +7,5 @@ public class PowerUpMover : MonoBehaviour {
     void Update() {
 
         transform.Translate(0, 0, -speed * Time.deltaTime, Space.World);
-
     }
 }

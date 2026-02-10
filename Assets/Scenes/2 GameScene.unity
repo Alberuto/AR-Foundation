@@ -1323,9 +1323,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuManager
   panelRanking: {fileID: 0}
+  panelSettings: {fileID: 0}
   rankingContainer: {fileID: 0}
   rankingEntryPrefab: {fileID: 0}
-  inputInicialesGameScene: {fileID: 0}
+  inputInicialesGameScene: {fileID: 2125451293}
 --- !u!224 &730769972
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1678,7 +1679,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 776296014}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &776296021
 Camera:
   m_ObjectHideFlags: 0

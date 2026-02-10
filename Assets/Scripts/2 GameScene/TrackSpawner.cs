@@ -20,8 +20,9 @@ public class TrackSpawner : MonoBehaviour {
         }
     }
     void SpawnSafe() {
-
-        try  {
+        Debug.Log("SpawnSafe llamado");
+        try
+        {
             if (enemyPrefab == null || powerupPrefab == null) return;
 
             if (Random.value > 0.7f) // 30% powerup

@@ -27,7 +27,6 @@ public class ImpactEffect : MonoBehaviour {
         // Activar panel
         panel.gameObject.SetActive(true);
         panel.color = new Color(colorObjetivo.r, colorObjetivo.g, colorObjetivo.b, 0.3f);
-
         // Fade out suave
         float tiempo = 0;
         while (tiempo < duracionEfecto) {
@@ -49,8 +48,8 @@ public class ImpactEffect : MonoBehaviour {
         panelRojo.color = new Color(1, 0, 0, 0.3f);
 
         float tiempo = 0;
-        while (tiempo < 1.5f)
-        { //1.5s TOTAL rojo
+        while (tiempo < 1.5f) { //1.5s TOTAL rojo
+
             tiempo += Time.deltaTime;
             float alpha = Mathf.Lerp(0.3f, 0f, tiempo / 1.5f);
             panelRojo.color = new Color(1, 0, 0, alpha);
@@ -82,7 +81,6 @@ public class ImpactEffect : MonoBehaviour {
     public void GameWin() {
         StartCoroutine(GameWinConVerde());
     }
-
     IEnumerator GameWinConVerde() {
         // Verde victoria LARGO (2s)
         panelVerde.gameObject.SetActive(true);
@@ -90,6 +88,7 @@ public class ImpactEffect : MonoBehaviour {
 
         float tiempo = 0;
         while (tiempo < 2f) { // 2s victoria
+
             tiempo += Time.deltaTime;
             float alpha = Mathf.Lerp(0.3f, 0f, tiempo / 2f);
             panelVerde.color = new Color(0, 1, 0, alpha);

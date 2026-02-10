@@ -6,24 +6,20 @@ public class ColorAssigner : MonoBehaviour {
     public Material[] enemyMats;   // Rojo, Negro, Gris
     public Material[] powerupMats; // Verde, Azul, Naranja
 
-    void Start()
-    {
+    void Start() {
         AssignRandomColor();
     }
-
     //MÉTODO PÚBLICO para TrackSpawner
-    public void AssignRandomColor()
-    {
+    public void AssignRandomColor() {
+
         Renderer rend = GetComponent<Renderer>();
 
-        if (Random.value > 0.5f)
-        {
+        if (Random.value > 0.5f) {
             // ENEMIGO
             rend.material = enemyMats[Random.Range(0, enemyMats.Length)];
             gameObject.tag = "Enemy";
         }
-        else
-        {
+        else {
             // POWERUP
             rend.material = powerupMats[Random.Range(0, powerupMats.Length)];
             gameObject.tag = "PowerUp";

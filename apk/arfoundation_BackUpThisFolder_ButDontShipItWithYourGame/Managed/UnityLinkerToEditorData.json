@@ -78,7 +78,9 @@
           },
           {
             "name": "AudioClip",
-            "scenes": [],
+            "scenes": [
+              "Assets/Scenes/1 MainMenu.unity"
+            ],
             "dependencyType": 0,
             "icon": null
           },
@@ -100,8 +102,18 @@
           },
           {
             "name": "AudioResource",
-            "scenes": [],
-            "dependencyType": 1,
+            "scenes": [
+              "Assets/Scenes/1 MainMenu.unity"
+            ],
+            "dependencyType": 0,
+            "icon": null
+          },
+          {
+            "name": "AudioSource",
+            "scenes": [
+              "Assets/Scenes/1 MainMenu.unity"
+            ],
+            "dependencyType": 0,
             "icon": null
           },
           {
@@ -322,7 +334,8 @@
             "name": "MonoBehaviour",
             "scenes": [
               "Assets/Scenes/1 MainMenu.unity",
-              "Assets/Scenes/2 GameScene.unity"
+              "Assets/Scenes/2 GameScene.unity",
+              "Assets/Scenes/3 GameOver.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -337,7 +350,8 @@
             "name": "MonoScript",
             "scenes": [
               "Assets/Scenes/1 MainMenu.unity",
-              "Assets/Scenes/2 GameScene.unity"
+              "Assets/Scenes/2 GameScene.unity",
+              "Assets/Scenes/3 GameOver.unity"
             ],
             "dependencyType": 1,
             "icon": null

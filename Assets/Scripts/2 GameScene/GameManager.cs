@@ -23,10 +23,12 @@ public class GameManager : MonoBehaviour {
     private int scoreVictoriaActual;
     private bool gameActivo = true;
 
-    void Awake() { if (Instance == null) Instance = this; }
-
-    void Start() { 
-        gameActivo = true; 
+    void Awake() { if (Instance == null) Instance = this; } //iniciar gameManager
+    void Start() {
+        Time.timeScale = 1f; //vital para resetear scena despues de gameover
+        gameActivo = true;
+        vidas = PlayerPrefs.GetInt("VidasPersonalizadas", 3);
+        vidasText.text = "Vidas: " + vidas;
         //CARGAR scoreTotalRanking persistente
         if (PlayerPrefs.HasKey("ScoreTotalRanking")) {
             scoreTotalRanking = PlayerPrefs.GetInt("ScoreTotalRanking");
@@ -34,8 +36,7 @@ public class GameManager : MonoBehaviour {
         if (PlayerPrefs.HasKey("NivelActual")) {
             nivelActual = PlayerPrefs.GetInt("NivelActual");
         }
-        else
-        {
+        else {
             nivelActual = 1; // Primera vez
         }
         CalcularScoreVictoria();
@@ -67,6 +68,7 @@ public class GameManager : MonoBehaviour {
         }
     }
     public void PerderVida() {
+
         vidas--;
         vidasText.text = "Vidas: " + vidas;
         if (vidas <= 0) {

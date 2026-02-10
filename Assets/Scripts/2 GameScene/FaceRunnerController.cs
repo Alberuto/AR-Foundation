@@ -16,7 +16,7 @@ public class FaceRunnerController : MonoBehaviour {
 
         Vector3 headRotation = face.transform.localEulerAngles;
 
-       float yaw = headRotation.y;
+        float yaw = headRotation.y;
         if (yaw > 180) yaw -= 360;
 
         float targetX = -yaw * lateralSensitivity;

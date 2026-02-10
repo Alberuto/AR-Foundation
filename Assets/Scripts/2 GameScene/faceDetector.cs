@@ -9,8 +9,8 @@ public class faceDetector : MonoBehaviour {
 
 
     private void OnEnable() {
+
         faceManager.facesChanged += OnFacesChanged;
-        
     }
     private void OnDisable() {
 
