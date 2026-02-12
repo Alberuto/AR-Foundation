@@ -20,6 +20,9 @@ extern void MenuManager_GetNivelActual_mFF89FBF85D82A2DC8A6A6E629CA33FA218F07C3F
 extern void MenuManager_Ranking_m403853CEFAA1415618AF95A6520BF2D908F11818 (void);
 extern void MenuManager_MostrarRanking_m7FC7FD84073BC1D7B7CBB059D24BF45463BA5FF3 (void);
 extern void MenuManager_GuardarRankingDirecto_mCC0B8DD12809F90F995952D3ABDF2AC06151B0AE (void);
+extern void MenuManager_OnEnable_mDC14B8D06A521FFC2F661DF41359B80C63FE60E9 (void);
+extern void MenuManager_OnDisable_m8040E83C90147925B3426A082FE1EA1F2A359A29 (void);
+extern void MenuManager_OnSceneLoaded_m059730762B382A1512FB91CCAC0D5150845C8154 (void);
 extern void MenuManager__ctor_m07A22DFDD90E3164393F8BDE06DAEF5AFA786CF2 (void);
 extern void RankingEntry__ctor_m36649AECF0FAF8FA436CE412285D2CDB2785DCD4 (void);
 extern void RankingData_AddEntry_mAB42AFD63003A28AC2046DE97AA84BE3A2610762 (void);
@@ -100,7 +103,7 @@ extern void Readme__ctor_m69C325C4C171DCB0312B646A9034AA91EA8C39C6 (void);
 extern void Section__ctor_m5F732533E4DFC0167D965E5F5DB332E46055399B (void);
 extern void UnitySourceGeneratedAssemblyMonoScriptTypes_v1_Get_mBEB95BEB954BB63E9710BBC7AD5E78C4CB0A0033 (void);
 extern void UnitySourceGeneratedAssemblyMonoScriptTypes_v1__ctor_mE70FB23ACC1EA12ABC948AA22C2E78B2D0AA39B1 (void);
-static Il2CppMethodPointer s_methodPointers[93] = 
+static Il2CppMethodPointer s_methodPointers[96] = 
 {
 	MenuManager_Awake_mBE6CB23506EC05F5ED24A23ED037C9B2E33C4DD6,
 	MenuManager_Jugar_m517285D898868D29DE2E6914073D6EA379E4B961,
@@ -115,6 +118,9 @@ static Il2CppMethodPointer s_methodPointers[93] =
 	MenuManager_Ranking_m403853CEFAA1415618AF95A6520BF2D908F11818,
 	MenuManager_MostrarRanking_m7FC7FD84073BC1D7B7CBB059D24BF45463BA5FF3,
 	MenuManager_GuardarRankingDirecto_mCC0B8DD12809F90F995952D3ABDF2AC06151B0AE,
+	MenuManager_OnEnable_mDC14B8D06A521FFC2F661DF41359B80C63FE60E9,
+	MenuManager_OnDisable_m8040E83C90147925B3426A082FE1EA1F2A359A29,
+	MenuManager_OnSceneLoaded_m059730762B382A1512FB91CCAC0D5150845C8154,
 	MenuManager__ctor_m07A22DFDD90E3164393F8BDE06DAEF5AFA786CF2,
 	RankingEntry__ctor_m36649AECF0FAF8FA436CE412285D2CDB2785DCD4,
 	RankingData_AddEntry_mAB42AFD63003A28AC2046DE97AA84BE3A2610762,
@@ -196,7 +202,7 @@ static Il2CppMethodPointer s_methodPointers[93] =
 	UnitySourceGeneratedAssemblyMonoScriptTypes_v1_Get_mBEB95BEB954BB63E9710BBC7AD5E78C4CB0A0033,
 	UnitySourceGeneratedAssemblyMonoScriptTypes_v1__ctor_mE70FB23ACC1EA12ABC948AA22C2E78B2D0AA39B1,
 };
-static const int32_t s_InvokerIndices[93] = 
+static const int32_t s_InvokerIndices[96] = 
 {
 	15362,
 	15362,
@@ -206,18 +212,21 @@ static const int32_t s_InvokerIndices[93] =
 	15362,
 	15362,
 	15362,
-	26140,
-	26140,
+	26142,
+	26142,
 	15362,
 	15362,
 	19856,
+	15362,
+	15362,
+	5980,
 	15362,
 	15362,
 	2472,
 	15362,
 	15362,
 	15362,
-	26248,
+	26250,
 	15362,
 	4029,
 	15362,
@@ -268,10 +277,10 @@ static const int32_t s_InvokerIndices[93] =
 	15362,
 	15362,
 	15362,
-	26248,
+	26250,
 	15362,
 	15362,
-	26248,
+	26250,
 	11696,
 	15362,
 	15362,
@@ -289,14 +298,14 @@ static const int32_t s_InvokerIndices[93] =
 	15362,
 	15362,
 	15362,
-	26286,
+	26288,
 	15362,
 };
 IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	93,
+	96,
 	s_methodPointers,
 	0,
 	NULL,
